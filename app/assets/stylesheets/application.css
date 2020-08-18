@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+.navbar-inverse {
+    background-color: #222;
+    border-color: #090909;
+    color:white;
+}
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0 0 1px;
+    height: 100px
+}
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.navbar-left {
+    float: left !important;
+}
+.navbar-right {
+    float: right !important;
+    margin-right: -15px;
+}
+.nav>li {
+    position: relative;
+    display: block;
+}

@@ -1,3 +1,4 @@
+
 <section class="sct-color-1 slice">
   <div class="container-fluid masonry-container">
     <div class="row">
@@ -11,7 +12,7 @@
                   <h3 class="block-title">
                     <%= link_to book_path(book.id) do %>
                       <i class="fa fa-map-marker">
-                      	<%= link_to book.title ,book_path(@book) %>
+                      	<%= link_to book.title ,book_path(book) %>
                       	</i>
                     <% end %>
                   </h3>
@@ -22,7 +23,7 @@
                     </li>
                     <li>
                       <% if book.user == current_user %>
-                      <%= link_to "削除", books_path(@book), method: :delete %>
+                      <%= link_to "削除", books_path(book), method: :delete %>
                       <% end %>
                     </li>
                   </ul>
