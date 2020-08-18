@@ -36,7 +36,12 @@
     float: right !important;
     margin-right: -15px;
 }
-.nav>li {
+ul{
+	font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+}
+li {
     position: relative;
-    display: block;
+    display: inline-block;
 }
