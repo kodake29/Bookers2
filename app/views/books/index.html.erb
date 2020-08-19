@@ -1,37 +1,32 @@
-
 <section class="sct-color-1 slice">
   <div class="container-fluid masonry-container">
     <div class="row">
       <div class="col-md-8 col-sm-offset-2">
-        <div class="masonry-wrapper-cols">
-          <div class="masonry-gutter"></div>
-          <% @books.each do |book| %>
-            <div class="masonry-block">
-              <div class="block block-image v1">
-                <div class="block-content">
-                  <h3 class="block-title">
-                    <%= link_to book_path(book.id) do %>
-                      <i class="fa fa-map-marker">
-                      	<%= link_to book.title ,book_path(book) %>
-                      	</i>
-                    <% end %>
-                  </h3>
-                  <p><%= book.body %></p>
-                  <ul class="inline-meta">
-                    <li>By
-                      <%= book.user.name %>
-                    </li>
-                    <li>
-                      <% if book.user == current_user %>
-                      <%= link_to "削除", books_path(book), method: :delete %>
-                      <% end %>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
+        <table class="books-index">
+          <tr>
+           <th></th>
+           <th>Title</th>
+           <th>Opinion</th>
+          </tr>
+            <% @books.each do |book| %>
+            <% @users.each do |user| %>
+          <tr>
+            <td>
+              <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'png', class: "img-circle pull-left profile-img", fallback: "noimage.png", size:'60x60' %>
+            </td>
+            <td>
+              <%= link_to book_path(book.id) do %>
+              <%= link_to book.title ,book_path(book) %>
+              <% end %>
+            </td>
+            <td>
+              <%= book.body %>
+            </td>
+          </tr>
+           <% end %>
+            <% end %>
+      </table>
+
       </div>
     </div>
   </div>
