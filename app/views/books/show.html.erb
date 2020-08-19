@@ -1,20 +1,10 @@
 <h1>Books#show</h1>
 <p>Find me in app/views/books/show.html.erb</p>
-<section class="sct-color-1 slice">
-  <div class="container-fluid masonry-container">
-    <div class="row">
-      <div class="col-md-8 col-sm-offset-2">
-        <div class="masonry-wrapper-cols">
-          <div class="masonry-gutter"></div>
+<section>
           <% @books.each do |book| %>
-            <div class="masonry-block">
-              <div class="block block-image v1">
-                <div class="block-content">
                   <h3 class="block-title">
                     <%= link_to book_path(book.id) do %>
-                      <i class="fa fa-map-marker">
                       	<%= book.title %>
-                      	</i>
                     <% end %>
                   </h3>
                   <p><%= book.body %></p>
@@ -33,12 +23,7 @@
                     	<% end %>
                     </li>
                   </ul>
-                </div>
-              </div>
-            </div>
+
           <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
+
 </section>
