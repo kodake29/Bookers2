@@ -1,0 +1,30 @@
+
+<section>
+<table>
+	<thead>
+		<tr>
+			<th></th>
+			<th>Title</th>
+			<th>Opinion</th>
+		</tr>
+	</thead>
+	<% @user.books.each do |book|%>
+	<tbody>
+		<tr>
+			<td>
+			  <%=attachment_image_tag book.user,:profile_image, :fill, 60, 60, format: 'png', fallback: "noimage.png", size:'60x60'%>
+			</td>
+			<td> 
+			  <%= link_to book_path(book) do %>
+              <%= book.title %>
+              <% end %>
+            </td>
+            <td>
+              <%= book.body %>
+            </td>
+		</tr>
+	</tbody>
+	<% end %>
+</table>
+</section>
+

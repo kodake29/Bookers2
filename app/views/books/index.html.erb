@@ -1,7 +1,5 @@
 <section class="sct-color-1 slice">
-  <div class="container-fluid masonry-container">
-    <div class="row">
-      <div class="col-md-8 col-sm-offset-2">
+<h2>Books</h2>
         <table class="books-index">
           <tr>
            <th></th>
@@ -9,10 +7,11 @@
            <th>Opinion</th>
           </tr>
             <% @books.each do |book| %>
-            <% @users.each do |user| %>
           <tr>
             <td>
-              <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'png', class: "img-circle pull-left profile-img", fallback: "noimage.png", size:'60x60' %>
+              <%= link_to user_path(book.user.id) do %>
+              <%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, format: 'png', fallback: "noimage.png", size:'60x60' %>
+              <% end %>
             </td>
             <td>
               <%= link_to book_path(book.id) do %>
@@ -24,10 +23,7 @@
             </td>
           </tr>
            <% end %>
-            <% end %>
       </table>
 
-      </div>
-    </div>
-  </div>
+
 </section>
