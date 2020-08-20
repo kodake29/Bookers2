@@ -1,4 +1,10 @@
+<%= render 'books/list', book_new: @book_new, user: @user %>
 <section>
+ <% if flash[:notice] %>
+ <div class="flash">
+    <%= flash[:notice] %>
+  </div>
+  <% end %>
   <h2>Book detail</h2>
   <table>
     <thead>
