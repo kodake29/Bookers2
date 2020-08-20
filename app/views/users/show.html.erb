@@ -1,4 +1,8 @@
-<%= render 'books/list', book_new: @book_new, side_user: @user %>
+ <div class="flash">
+    <%= flash[:notice] %>
+  </div>
+  <% end %>
+<%= render 'books/list', book_new: @book_new, user: @user %>
 <section>
 <table>
 	<thead>
@@ -8,19 +12,19 @@
 			<th>Opinion</th>
 		</tr>
 	</thead>
-	<% @user.books.each do |book|%>
+	<% @user.books.each do |each_book|%>
 	<tbody>
 		<tr>
 			<td>
-			  <%=attachment_image_tag book.user,:profile_image, :fill, 60, 60, format: 'png', fallback: "noimage.png", size:'60x60'%>
+			  <%=attachment_image_tag each_book.user,:profile_image, :fill, 60, 60, format: 'png', fallback: "noimage.png", size:'60x60'%>
 			</td>
 			<td> 
-			  <%= link_to book_path(book) do %>
-              <%= book.title %>
+			  <%= link_to book_path(each_book) do %>
+              <%= each_book.title %>
               <% end %>
             </td>
             <td>
-              <%= book.body %>
+              <%= each_book.body %>
             </td>
 		</tr>
 	</tbody>
