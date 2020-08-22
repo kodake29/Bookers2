@@ -1,10 +1,16 @@
+<div class="row">
+		<% if flash[:notice] %>
  <div class="flash">
     <%= flash[:notice] %>
   </div>
   <% end %>
+  <div class="col-xs-3">
 <%= render 'books/list', book_new: @book_new, user: @user %>
+</div>
 <section>
-<table>
+
+	<div class="col-xs-9">
+<table class="table">
 	<thead>
 		<tr>
 			<th></th>
@@ -12,8 +18,8 @@
 			<th>Opinion</th>
 		</tr>
 	</thead>
-	<% @user.books.each do |each_book|%>
 	<tbody>
+	<% @user.books.each do |each_book|%>
 		<tr>
 			<td>
 			  <%=attachment_image_tag each_book.user,:profile_image, :fill, 60, 60, format: 'png', fallback: "noimage.png", size:'60x60'%>
@@ -27,8 +33,9 @@
               <%= each_book.body %>
             </td>
 		</tr>
-	</tbody>
 	<% end %>
+</tbody>
 </table>
+</div>
 </section>
-
+</div>

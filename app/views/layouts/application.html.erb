@@ -10,56 +10,102 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-      <nav class="nav navbar-nav navbar-left">
-        <span>Bookers</span>
-      </nav>
-      <div id="slidemenu">
-  <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
+ <body>
+      <header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <div class="row">
+    <nav class="nav navbar-nav navbar-left">
+      <span>Bookers</span>
+    </nav>
+    <nav>
+       <ul class="nav navbar-nav navbar-right">
     <% if user_signed_in? %>
-      <li class="">
-        <i class="fas fa-home"></i>
-        <%= link_to 'Home', user_path(current_user.id) %>
+    <li>
+      <div>
+        <%= link_to user_path(current_user.id) do%>
+        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+        <span>Home</span>
+        <% end %>
+      </div>
       </li>
       <li class="">
-        <i class="fas fa-user"></i>
-        <%= link_to 'Users', users_path %>
+        <div class="">
+        <%= link_to users_path do%>
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+        <span>Users</span>
+        <% end %>
+      </div>
       </li>
       <li class="">
-        <i class="fas fa-book"></i>
-        <%= link_to 'Books', books_path %>
+        <div>
+        <%= link_to books_path  do%>
+        <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+        <span>Books</span>
+        <% end %>
+      </div>
       </li>
       <li class="">
-        <i class="fas fa-sign-out-alt"></i>
-        <%= link_to "logout", destroy_user_session_path, method: :delete %>
+        <div>
+        <%= link_to destroy_user_session_path,method: :delete do %>
+        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+        <span>logout</span>
+        <% end %>
+      </div>
       </li>
     <% else %>
       <li class="">
-        <i class="fas fa-home"></i>
-        <%= link_to 'Home', root_path %>
+        <div>
+        <%= link_to root_path  do%>
+        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+        <span>Home</span>
+        <% end %>
+      </div>
       </li>
       <li class="">
-        <i class="fas fa-user"></i>
-        <%= link_to 'Users', users_path %>
+        <div class="">
+        <%= link_to home_about_path  do%>
+         <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+         <span>About</span>
+         <% end %>
+      </div>
       </li>
       <li class="">
-        <i class="fas fa-edit"></i>
-        <%= link_to "新規登録", new_user_registration_path %>
+        <div>
+        <%= link_to new_user_registration_path do%>
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <span>sign up</span>
+        <% end %>
+      </div>
       </li>
       <li class="">
-        <i class="fas fa-sign-in-alt"></i>
-        <%= link_to "login", new_user_session_path %>
+          <div>
+        <%= link_to new_user_session_path do%>
+        <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+        <span>login</span>
+        <% end %>
+      </div>
       </li>
     <% end %>
   </ul>
+</nav>
 </div>
 </div>
-    </header><!-- /header -->
+    </header>
+    <main>
+      <div class="container">
     <%= yield %>
-  </body>
-  <footer>
-    <p>CopyRight Infratop.inc</p>
+</div>
+  </main>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-3 col-xs-offset-9">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
   </footer>
+  </body>
+
 </html>

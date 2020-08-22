@@ -13,35 +13,25 @@
  *= require_tree .
  *= require_self
  */
-.navbar-inverse {
-    background-color: #222;
-    border-color: #090909;
-    color:white;
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+*{
+	box-sizing:border-box;
 }
-.navbar-fixed-top {
-    top: 0;
-    border-width: 0 0 1px;
-    height: 100px
+
+header .navbar-left span {
+    font-size: 20px;
+    padding-top: 10px;
+    color: #9d9d9d;
 }
-.container {
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+
+.navbar-nav>li {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-right:5px;
+    color: #9d9d9d;
 }
-.navbar-left {
-    float: left !important;
-}
-.navbar-right {
-    float: right !important;
-    margin-right: -15px;
-}
-ul{
-	font-family: verdana, arial, helvetica, sans-serif;
-    font-size: 13px;
-    line-height: 18px;
-}
-li {
-    position: relative;
-    display: inline-block;
+main{
+	padding-top:50px;
 }

@@ -1,26 +1,4 @@
-<div class="profile-container">
-<h3>User Info</h3>
-<table>
-  <tr>
-   <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'png', class: "img-circle pull-left profile-img", fallback: "noimage.png", size:'60x60' %>
-  </tr>
-  <tr>
-   <td>name</td>
-   <td class="profile-name"><%= user.name %></td>
-  </tr>
-  <tr>
-   <td>introduction</td>
-   <td class="profile-introduction"><%= user.introduction %></td>
-  </tr>
-</table>
-
-    <p><%= link_to "プロフィール編集", edit_user_path(current_user.id), class: "pull-right" %></p>
-
-</div>
-
-<h3>New Book</h3>
-<%= form_for(book_new, url: books_path) do |f| %>
-  <% if book_new.errors.any? %>
+<% if book_new.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(book_new.errors.count, "error") %> prohibited this obj from being saved:</h2>
       <ul>
@@ -30,18 +8,43 @@
       </ul>
     </div>
   <% end %>
-  <div class="row">
-    <div class="col-sm-6">
+<div class="profile-container">
+<h3>User info</h3>
+<table class="table">
+  <tr>
+   <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, format: 'png', class: "pull-left profile-img", fallback: "noimage.png", size:'60x60' %>
+  </tr>
+  <tr>
+   <td>name</td>
+   <td class="profile-name"><%= current_user.name %></td>
+  </tr>
+  <tr>
+   <td>introduction</td>
+   <td class="profile-introduction"><%= current_user.introduction %></td>
+  </tr>
+</table>
+
+    <div class="btn btn-default btn-lg btn-block btn-base-1 mt-20">
+      <%= link_to edit_user_path(current_user.id) do %>
+      <div><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></div>
+      <% end %>
+    </div>
+
+</div>
+
+<h3>New book</h3>
+<%= form_for(book_new, url: books_path) do |f| %>
+  
+
         <p>Title</p>
+        <div class="form-group">
         <label class="control-label sr-only">Title</label>
         <%= f.text_field :title, class:"form-control"%>
-    </div>
-  </div>
-  <div class="row">
+      </div>
+
     <p>Opinion</p>
-    <div class="col-sm-12">
+    <div class="form-group">
       <%= f.text_area :body, class:"form-control", rows:"3"%>
     </div>
-  </div>
-  <%= f.submit "送信", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+  <%= f.submit "Create Book", class:"btn btn-primary btn-lg btn-block btn-base-1 mt-20" %>
 <% end %>

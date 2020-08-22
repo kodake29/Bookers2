@@ -1,12 +1,19 @@
+<div class="row">
+  <div class="col-xs-3">
 <%= render 'books/list', book_new: @book_new, user: @user %>
-<section class="sct-color-1 slice">
+</div>
+<section>
+  <div class="col-xs-9">
 <h2>Books</h2>
-        <table class="books-index">
-          <tr>
+        <table class="table">
+          <thead>
+            <tr>
            <th></th>
            <th>Title</th>
            <th>Opinion</th>
           </tr>
+        </thead>
+        <tbody>
             <% @books.each do |book| %>
           <tr>
             <td>
@@ -24,7 +31,9 @@
             </td>
           </tr>
            <% end %>
+         </tbody>
       </table>
-
+</div>
 
 </section>
+</div>
