@@ -18,70 +18,87 @@
       <span>Bookers</span>
     </nav>
     <nav>
-       <ul class="nav navbar-nav navbar-right">
+
+       <ul class="nav navbar-nav navbar-right navbar-dark">
     <% if user_signed_in? %>
     <li>
-      <div>
+      <div class="text-muted">
         <%= link_to user_path(current_user.id) do%>
+         <div class="btn-color">
         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
         <span>Home</span>
+      </div>
         <% end %>
       </div>
       </li>
-      <li class="">
-        <div class="">
+      <li>
+        <div class="text-muted">
         <%= link_to users_path do%>
+         <div class="btn-color">
         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
         <span>Users</span>
+      </div>
         <% end %>
       </div>
       </li>
-      <li class="">
-        <div>
+      <li>
+        <div class="text-muted">
         <%= link_to books_path  do%>
+         <div class="btn-color">
         <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
         <span>Books</span>
+      </div>
         <% end %>
       </div>
       </li>
-      <li class="">
-        <div>
+      <li>
+        <div class="text-muted">
         <%= link_to destroy_user_session_path,method: :delete do %>
+         <div class="btn-color">
         <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
         <span>logout</span>
+      </div>
         <% end %>
       </div>
       </li>
     <% else %>
-      <li class="">
-        <div>
-        <%= link_to root_path  do%>
+      <li>
+        <div class="text-muted">
+        <%= link_to root_path do%>
+        <div class="btn-color">
         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
         <span>Home</span>
+      </div>
         <% end %>
       </div>
       </li>
-      <li class="">
-        <div class="">
+      <li>
+        <div class="text-muted">
         <%= link_to home_about_path  do%>
+         <div class="btn-color">
          <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
          <span>About</span>
+       </div>
          <% end %>
       </div>
       </li>
-      <li class="">
-        <div>
+      <li>
+        <div class="text-muted">
         <%= link_to new_user_registration_path do%>
+         <div class="btn-color">
         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
         <span>sign up</span>
+         </div>
         <% end %>
       </div>
       </li>
-      <li class="">
-          <div>
+      <li>
+          <div class="text-muted">
         <%= link_to new_user_session_path do%>
+         <div class="btn-color">
         <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
         <span>login</span>
+         </div>
         <% end %>
       </div>
       </li>

@@ -12,20 +12,20 @@
 <h3>User info</h3>
 <table class="table">
   <tr>
-   <%= attachment_image_tag current_user, :profile_image, :fill, 60, 60, format: 'png', class: "pull-left profile-img", fallback: "noimage.png", size:'60x60' %>
+   <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: 'png', class: "pull-left profile-img", fallback: "noimage.png", size:'60x60' %>
   </tr>
   <tr>
    <td>name</td>
-   <td class="profile-name"><%= current_user.name %></td>
+   <td class="profile-name"><%= user.name %></td>
   </tr>
   <tr>
    <td>introduction</td>
-   <td class="profile-introduction"><%= current_user.introduction %></td>
+   <td class="profile-introduction"><%= user.introduction %></td>
   </tr>
 </table>
 
     <div class="btn btn-default btn-lg btn-block btn-base-1 mt-20">
-      <%= link_to edit_user_path(current_user.id) do %>
+      <%= link_to edit_user_path(user.id) do %>
       <div><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span></div>
       <% end %>
     </div>
